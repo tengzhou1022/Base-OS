@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- File Name: Core_Function.xml -->
+
+<TestRun>
+<!-- testcases: at @@start-->
+    <TestCase>
+        <Summary>daemons-atd-Sanity-initscript-runtest</Summary>
+        <Dir>daemons/at/Sanity/initscript</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+<!-- testcases: at @@end-->
+<!-- testcases: gzip @@start-->
+    <TestCase>
+        <Summary>daemons-gzip-Sanity-basic-sanity-test</Summary>
+        <Dir>daemons/gzip/Sanity/basic-sanity-test</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+    <TestCase>
+        <Summary>daemons-gzip-Sanity-test-of-4G-file-comp-decomp</Summary>
+        <Dir>daemons/gzip/Sanity/test-of-4G-file-comp-decomp</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>True</CaseRun>
+    </TestCase>
+<!-- testcases: gzip @@end-->
+</TestRun>

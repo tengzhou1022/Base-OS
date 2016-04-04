@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- File Name: TestGroup.xml -->
+
+<TestRun>
+    <TestGroup>
+        <GroupName>daemons</GroupName>
+        <Component>daemons-test</Component>
+        <GroupRun>True</GroupRun>
+        <GroupAll>False</GroupAll>
+    </TestGroup>
+</TestRun>
