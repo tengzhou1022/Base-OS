@@ -34,7 +34,7 @@ trap "CleanData" EXIT INT
 function do_setup()
 {
 
-  apt-get install -f at
+  apt-get -y install  at
   EchoResult "install at"
 ##stop atd service
   SetService $SERVICE stop

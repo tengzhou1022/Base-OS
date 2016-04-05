@@ -5,7 +5,7 @@
 # Date:       2016/03/30
 # Author:     tengzhou1022
 # Email:      tengzhou1022@gmail.com
-# Summary:    daemons/gzip/Sanity/basic-sanity-test
+# Summary:    tools/make/Sanity/smoke-check-make-runs
 # Notes:       ***
 # History：
 #             Version 1.0, 2016/03/30
@@ -29,20 +29,13 @@ function CleanData()
   EchoInfo "gzip test-of-4G-file-comp-decomp finish"
 }
 trap "CleanData" EXIT INT
-
+function do_setup()
+{
 function do_setup()
 {
 ##安装gzip 此处待处理成为库hanshu
-  apt-get -y install  gzip
+  apt-get install -f gzip
   RunCmd "TmpDir=\`mktemp -d\`" 0 "Creating tmp directory"
   RunCmd "pushd $TmpDir"
 }
-function do_test()
-{
-  RunCmd "dd if=/dev/zero  bs=1M count=4100 | gzip >  out.gz"
-  CheckExists "out.gz"
-  RunCmd "gunzip <out.gz >out; ls -sh out"
-  CheckExists "out"
 }
-do_setup
-do_test
