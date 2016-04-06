@@ -3,11 +3,11 @@ function RunCmd()
 {
   GETOPT=$(getopt -q -o t -- "$@")
   eval set -- "$GETOPT"
-  
+
   local DO_TAG=false
   local TAG_OUT=''
   local TAG_ERR=''
-  local LOG_FILE='11'
+  local LOG_FILE=''
 
   while true ; do
         case "$1" in

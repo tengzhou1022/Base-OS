@@ -29,13 +29,18 @@ function CleanData()
   EchoInfo "gzip test-of-4G-file-comp-decomp finish"
 }
 trap "CleanData" EXIT INT
-function do_setup()
-{
+
 function do_setup()
 {
 ##安装gzip 此处待处理成为库hanshu
-  apt-get install -f gzip
+  apt-get -y install make
   RunCmd "TmpDir=\`mktemp -d\`" 0 "Creating tmp directory"
+  RunCmd "cp hello_world.c $TmpDir"
+  RunCmd "cp smoke.mk $TmpDir/Makefile"
   RunCmd "pushd $TmpDir"
 }
+
+function do_test()
+{
+
 }

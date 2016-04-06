@@ -5,7 +5,7 @@
 # Date:       2016/03/30
 # Author:     tengzhou1022
 # Email:      tengzhou1022@gmail.com
-# Summary:    daemons-at-Sanity-initscript
+# Summary:    daemons/bind/at-Sanity-initscript
 # Notes:       ***
 # History：
 #             Version 1.0, 2016/03/30

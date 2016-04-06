@@ -32,7 +32,7 @@ trap "CleanData" EXIT INT
 function do_setup()
 {
   ##安装gzip
-  apt-get install -f gzip
+  apt-get -y install gzip
   RunCmd "TmpDir=\`mktemp -d\`" 0 "Creating tmp directory"
   RunCmd "pushd $TmpDir"
 }

@@ -51,6 +51,20 @@ function CheckExists()
     return 1
   fi
 }
+##! @TODO: checking that the file does not contain a pattern
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:  return value.
+function CheckNotGrep()
+{
+  if [ ! -e $2 ];then
+    EchoInfo "CheckNotGrep: failed find file $2"
+    return 1
+  fi
+  local options=${3:--q}
+  ! grep $options -- "$1" "$2" && EchoResult "File '$2' should not contain '$1'"
+
+}
 
 ##! @TODO: Check the user exists or not
 ##! @AUTHOR: tengzhou1022
