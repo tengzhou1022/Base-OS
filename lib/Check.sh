@@ -32,7 +32,7 @@ function CmdCheck()
     return $RC
 }
 
-##! @TODO: Check the file or directory exists or not
+##! @TODO: checking for the existence of a file or a directory
 ##! @AUTHOR: tengzhou1022
 ##! @VERSION: 1.0
 ##! @OUT:  return value.
@@ -43,27 +43,98 @@ function CheckExists()
     return 1
   fi
   local FILE="File"
-  if [ -f $1 ] || [ -d $1 ];then
-    EchoResult "$1 exists"
-    return 0
+  if [ -d $1 ];then
+    FILE='Directory'
+  fi
+  if [ -e "$1" ];then
+    EchoResult "$FILE $1 should exist"
   else
-    EchoResult "$1 no exists"
-    return 1
+    EchoResult "$FILE $1 not exist"
   fi
 }
-##! @TODO: checking that the file does not contain a pattern
+
+##! @TODO: checking for the non-existence of a file or a directory
 ##! @AUTHOR: tengzhou1022
 ##! @VERSION: 1.0
 ##! @OUT:  return value.
-function CheckNotGrep()
+function CheckNotExists()
+{
+  if [ -z $1 ];then
+    EchoResult "CheckExists called without parpameter"
+    return 1
+  fi
+  local FILE="File"
+  if [ -d $1 ];then
+    FILE='Directory'
+  fi
+  if [ ! -e "$1" ];then
+    EchoResult "$FILE $1 should not exist"
+  else
+    EchoResult "$FILE $1 is exist"
+  fi
+}
+##! @TODO: checking that the file contains a pattern
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:  return value.
+function CheckGrep()
 {
   if [ ! -e $2 ];then
-    EchoInfo "CheckNotGrep: failed find file $2"
+    EchoResult "CheckNotGrep: failed find file $2"
     return 1
   fi
   local options=${3:--q}
-  ! grep $options -- "$1" "$2" && EchoResult "File '$2' should not contain '$1'"
+  grep $options -- "$1" "$2"
+  EchoResult "File '$2' should contain '$1'"
+}
 
+##! @TODO: checking that the file does not contain a pattern
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:
+function CheckNotGrep()
+{
+  if [ ! -e $2 ];then
+    EchoResult "CheckNotGrep: failed find file $2"
+    return 1
+  fi
+  local options=${3:--q}
+  ! grep $options -- "$1" "$2"
+  EchoResult "File '$2' should not contain '$1'"
+}
+
+##! @TODO: checking that two files do not differ (are identical)
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:  return value.
+function CheckDiffer()
+{
+  local file
+  for file in "$1" "$2";
+  do
+    if [ ! -e "$file" ];then
+      EchoResult "File $file was no found"
+    fi
+  done
+  ! cmp -s "$1" "$2"
+  EchoResult "Files $1 and $2 should not differ"
+}
+
+##! @TODO: checking that two files do not differ (are identical)
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:  return value.
+function CheckNotDiffer()
+{
+  local file
+  for file in "$1" "$2";
+  do
+    if [ ! -e "$file" ];then
+      EchoResult "File $file was no found"
+    fi
+  done
+  cmp -s "$1" "$2"
+  EchoResult "Files $1 and $2 should not differ"
 }
 
 ##! @TODO: Check the user exists or not
@@ -78,53 +149,4 @@ function UserCheck()
         EchoInfo "user $1 not exists, pls check"
         return 1
     fi
-}
-
-##! @TODO: Launch the process and kill it when time is out.
-##! @AUTHOR: tengzhou1022
-##! @VERSION: 1.0
-##! @OUT:  return value.
-function TimeoutCheck()
-{
-    local PROCESS=$1
-    local TIME_GAP=$2
-    local COUNT=$3
-    local RET=0
-    if [ $# -eq 3 ]
-    then
-        $PROCESS &
-        local PID=$!
-        for ((i=0; i<$COUNT; i++))
-        do
-            if [ $i -eq 0 ]
-            then
-                sleep 2
-            else
-                sleep $TIME_GAP
-            fi
-            local FIND_PID=$(ps -p $PID | wc -l)
-            if [ $FIND_PID -eq 1 ]
-            then
-                EchoInfo "The '${PROCESS}' exit normal."
-                RET=0
-                break
-            elif [ $FIND_PID -eq 2 ]
-            then
-                if [ $i -eq $((COUNT - 1)) ]
-                then
-                    kill -9 $PID
-                    RET=1
-                    EchoInfo "The '${PROCESS}' run timeout."
-                else
-                    continue
-                fi
-            else
-                RET=2
-                break
-            fi
-        done
-    else
-        RET=1
-    fi
-    return $RET
 }

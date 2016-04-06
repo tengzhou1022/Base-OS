@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- File Name: Core_Function.xml -->
+
+<TestRun>
+<!-- testcases: make @@start-->
+    <TestCase>
+        <Summary>make-Sanity-smoke-check-make-runs</Summary>
+        <Dir>tools/make/Sanity/smoke-check-make-runs</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+<!-- testcases: at @@end-->
+<!-- testcases: glibc @@start-->
+    <TestCase>
+        <Summary>tools-glibc-Sanity-basic-linking-sanity</Summary>
+        <Dir>tools/glibc/Sanity/basic-linking-sanity</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>True</CaseRun>
+    </TestCase>
+<!-- testcases: glibc @@end-->
+</TestRun>
