@@ -16,7 +16,15 @@
         <Summary>tools-glibc-Sanity-basic-linking-sanity</Summary>
         <Dir>tools/glibc/Sanity/basic-linking-sanity</Dir>
         <Script>runtest.sh</Script>
-        <CaseRun>True</CaseRun>
+        <CaseRun>False</CaseRun>
     </TestCase>
 <!-- testcases: glibc @@end-->
+<!-- testcases: batik @@start-->
+    <TestCase>
+        <Summary>tools/batik/Sanity/coverage-rasterizer</Summary>
+        <Dir>tools/batik/Sanity/coverage-rasterizer</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>True</CaseRun>
+    </TestCase>
+<!-- testcases: batik @@end-->
 </TestRun>

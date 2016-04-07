@@ -73,6 +73,7 @@ function CheckNotExists()
     EchoResult "$FILE $1 is exist"
   fi
 }
+
 ##! @TODO: checking that the file contains a pattern
 ##! @AUTHOR: tengzhou1022
 ##! @VERSION: 1.0
@@ -101,6 +102,17 @@ function CheckNotGrep()
   local options=${3:--q}
   ! grep $options -- "$1" "$2"
   EchoResult "File '$2' should not contain '$1'"
+}
+
+##! @TODO: checking whether first parameter is greater than the second one.
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:  return value.
+function CheckGreater()
+{
+  if [ "$2" -gt "$3" ];then
+    EchoResult "$2 should be greater than $3"
+  fi
 }
 
 ##! @TODO: checking that two files do not differ (are identical)

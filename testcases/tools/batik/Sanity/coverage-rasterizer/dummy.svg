@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="9cm" height="9cm" viewBox="216 95 170 170" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <ellipse style="fill: #0000ff" cx="301.5" cy="180.5" rx="83.5" ry="83.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="301.5" cy="180.5" rx="83.5" ry="83.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="301.5" cy="180.5" rx="83.5" ry="83.5"/>
+  </g>
+  <g>
+    <path style="fill: #ffff00" d="M 307 117 C 307,117 275.5,117 275.5,180 C 275.5,243 307,243 307,243 C 307,243 244,243 244,180 C 244,117 307,117 307,117z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 307 117 C 307,117 275.5,117 275.5,180 C 275.5,243 307,243 307,243 C 307,243 244,243 244,180 C 244,117 307,117 307,117"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 307 117 C 307,117 275.5,117 275.5,180 C 275.5,243 307,243 307,243 C 307,243 244,243 244,180 C 244,117 307,117 307,117"/>
+  </g>
+  <g>
+    <polygon style="fill: #ffff00" points="296,160 315.333,160 325,141 334.667,160 354,160 344.333,179 354,198 334.667,198 325,217 315.333,198 296,198 305.667,179 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="296,160 315.333,160 325,141 334.667,160 354,160 344.333,179 354,198 334.667,198 325,217 315.333,198 296,198 305.667,179 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="296,160 315.333,160 325,141 334.667,160 354,160 344.333,179 354,198 334.667,198 325,217 315.333,198 296,198 305.667,179 "/>
+  </g>
+</svg>
