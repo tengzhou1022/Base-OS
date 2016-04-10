@@ -1,0 +1,23 @@
+***********************************************************************
+Component:daemons-test
+---------------------------------------------------------------------->
+Case-001:daemons/coreutils/chmod/bz474232_be_silent is running
+22:16:16 PASS | Creating tmp directory success
+22:16:16 PASS | Running 'pushd /tmp/tmp.tcVe3eVpZQ' success
+22:16:16 INFO | ====Bug 474232====
+22:16:16 PASS | is output really empty? success
+22:16:16 PASS | Running 'popd' success
+22:16:16 PASS | Removing tmp directory success
+22:16:16 INFO | test daemons/coreutils/chmod/bz474232_be_silent finish
+---------------------------------------------------------------------->
+Case-002:daemons/coreutils/chmod/Regression/bz474220-behavior-change-chmod-f-option is running
+22:16:16 PASS | useradd test
+22:16:16 PASS | Creating tmp directory success
+22:16:16 PASS | Running 'pushd /tmp/tmp.bvUULPcmw5' success
+22:16:16 INFO | ===chown/chgrp test -f, --silent, --quiet  suppress most error messages===
+22:16:16 PASS | is output really empty? success
+22:16:16 PASS | is output really empty? success
+22:16:16 PASS | test delete success.
+22:16:16 PASS | Running 'popd' success
+22:16:16 PASS | Removing tmp directory success
+22:16:16 INFO | test daemons/coreutils/chmod/Regression/bz474220-behavior-change-chmod-f-option finish

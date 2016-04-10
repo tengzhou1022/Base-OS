@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- File Name: Core_Function.xml -->
+<!-- File Name: daemons.xml -->
 
 <TestRun>
 <!-- testcases: at @@start-->
@@ -11,6 +11,44 @@
         <CaseRun>False</CaseRun>
     </TestCase>
 <!-- testcases: at @@end-->
+<!-- testcases: coreutils @@start-->
+    <TestCase>
+        <Summary>daemons/coreutils/chgrp/reset-uid</Summary>
+        <Dir>daemons/coreutils/chgrp/reset-uid</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+    <TestCase>
+        <Summary>daemons/coreutils/chgrp/bz436624_preserve_root</Summary>
+        <Dir>daemons/coreutils/chgrp/bz436624_preserve_root</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+    <TestCase>
+        <Summary>daemons/coreutils/chmod/bz474232_be_silent</Summary>
+        <Dir>daemons/coreutils/chmod/bz474232_be_silent</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+    <TestCase>
+        <Summary>daemons/coreutils/chmod/Regression/bz474220-behavior-change-chmod-f-option</Summary>
+        <Dir>daemons/coreutils/chmod/Regression/bz474220-behavior-change-chmod-f-option</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+    <TestCase>
+        <Summary>daemons/coreutils/Library/file</Summary>
+        <Dir>daemons/coreutils/Library/file</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+    <TestCase>
+        <Summary>daemons/coreutils/Sanity/bz454072-RHEL-5-1-cp-and-chmod-don-t-respect-NFSv4-ACLs</Summary>
+        <Dir>daemons/coreutils/Sanity/bz454072-RHEL-5-1-cp-and-chmod-don-t-respect-NFSv4-ACLs</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>True</CaseRun>
+    </TestCase>
+<!-- testcases: coreutils @@end-->
 <!-- testcases: gzip @@start-->
     <TestCase>
         <Summary>daemons-gzip-Sanity-basic-sanity-test</Summary>
@@ -22,7 +60,7 @@
         <Summary>daemons-gzip-Sanity-test-of-4G-file-comp-decomp</Summary>
         <Dir>daemons/gzip/Sanity/test-of-4G-file-comp-decomp</Dir>
         <Script>runtest.sh</Script>
-        <CaseRun>True</CaseRun>
+        <CaseRun>False</CaseRun>
     </TestCase>
 <!-- testcases: gzip @@end-->
 </TestRun>

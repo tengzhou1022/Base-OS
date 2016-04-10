@@ -1,8 +1,0 @@
-tools-test
-FAIL|tools/batik/Sanity/coverage-rasterizer
-****************************
-Tests passed: 0
-Tests failed: 1
-Success rate: 0%
-Tests   time: 00h:08m:32s
-****************************

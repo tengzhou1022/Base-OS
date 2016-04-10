@@ -5,7 +5,7 @@
 # Date:       2016/03/30
 # Author:     tengzhou1022
 # Email:      tengzhou1022@gmail.com
-# Summary:
+# Summary:    daemons/coreutils/Library/file
 # Notes:       ***
 # History：
 #             Version 1.0, 2016/03/30
@@ -21,28 +21,47 @@ fi
 . ${SFROOT}/lib/Echo.sh
 . ${SFROOT}/lib/RunCmd.sh
 . ${SFROOT}/lib/Check.sh
+. ./lib.sh
 
 function CleanData()
 {
   RunCmd "popd"
-  RunCmd "sudo rm -r $TmpDir" 0 "Removing tmp directory"
-  EchoInfo "test  finish"
+  RunCmd "rm -r $TmpDir" 0 "Removing tmp directory"
+  EchoInfo "test daemons/coreutils/Library/file finish"
 }
 trap "CleanData" EXIT INT
 
 function do_setup()
 {
-  #sudo apt-get -y install
+  ##安装coreutils包，此处待确认方法
   RunCmd "TmpDir=\`mktemp -d\`" 0 "Creating tmp directory"
   RunCmd "pushd $TmpDir"
-
-
 }
+
+PACKAGE="coreutils"
+PHASE=${PHASE:-Test}
 
 function do_test()
 {
-  RunCmd
-  RunCmd
+  if [[ "$PHASE" =~ "Create" ]]; then
+    EchoInfo "Create"
+    fileCreate
+  fi
+
+
+  if [[ "$PHASE" =~ "Test" ]]; then
+    EchoInfo "===Test default name==="
+    fileCreate
+    CheckExists "$fileFILENAME"
+
+    EchoInfo "===Test filename in parameter==="
+    fileCreate "parameter-file"
+    CheckExists "parameter-file"
+
+    EchoInfo "===Test filename in variable==="
+    FILENAME="variable-file" fileCreate
+    CheckExists "variable-file"
+  fi
 }
 do_setup
 do_test

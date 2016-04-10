@@ -126,7 +126,7 @@ function RunTest()
 
 
 # shellframe root path
-PROFILE="/root/.bashrc"
+PROFILE="$HOME/.bashrc"
 export SFROOT=`echo $(cd $(dirname $0); pwd)`
 sed -i '/SFROOT/d' ${PROFILE}
 echo "export SFROOT=${SFROOT}" >> ${PROFILE}

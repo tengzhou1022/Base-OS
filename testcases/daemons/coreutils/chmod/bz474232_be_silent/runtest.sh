@@ -5,7 +5,7 @@
 # Date:       2016/03/30
 # Author:     tengzhou1022
 # Email:      tengzhou1022@gmail.com
-# Summary:
+# Summary:    daemons/coreutils/chmod/bz474232_be_silent
 # Notes:       ***
 # History：
 #             Version 1.0, 2016/03/30
@@ -26,23 +26,21 @@ function CleanData()
 {
   RunCmd "popd"
   RunCmd "sudo rm -r $TmpDir" 0 "Removing tmp directory"
-  EchoInfo "test  finish"
+  EchoInfo "test daemons/coreutils/chmod/bz474232_be_silent finish"
 }
 trap "CleanData" EXIT INT
 
 function do_setup()
 {
-  #sudo apt-get -y install
   RunCmd "TmpDir=\`mktemp -d\`" 0 "Creating tmp directory"
   RunCmd "pushd $TmpDir"
-
-
 }
 
 function do_test()
 {
-  RunCmd
-  RunCmd
+  EchoInfo "====Bug 474232===="
+  sudo chmod -f 755 nonexistent-file-$RANDOM &> outputXY
+  RunCmd "cat $TmpDir/outputXY | wc -l | grep 0" 0 "is output really empty?"
 }
 do_setup
 do_test

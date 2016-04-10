@@ -5,7 +5,7 @@
 # Date:       2016/03/30
 # Author:     tengzhou1022
 # Email:      tengzhou1022@gmail.com
-# Summary:
+# Summary:    daemons/coreutils/chgrp/bz436624_preserve_root
 # Notes:       ***
 # History：
 #             Version 1.0, 2016/03/30
@@ -26,23 +26,23 @@ function CleanData()
 {
   RunCmd "popd"
   RunCmd "sudo rm -r $TmpDir" 0 "Removing tmp directory"
-  EchoInfo "test  finish"
+  EchoInfo "test daemons/coreutils/chgrp/bz436624_preserve_root finish"
 }
 trap "CleanData" EXIT INT
 
 function do_setup()
 {
-  #sudo apt-get -y install
   RunCmd "TmpDir=\`mktemp -d\`" 0 "Creating tmp directory"
   RunCmd "pushd $TmpDir"
-
-
 }
 
 function do_test()
 {
-  RunCmd
-  RunCmd
+  EchoInfo "===Bug 474232 - smoke test==="
+  RunCmd "touch bug474232"
+  RunCmd "sudo chgrp --preserve-root bin bug474232"
+  RunCmd "ls -la /tmp/bug474232 | grep bin"
 }
+
 do_setup
 do_test

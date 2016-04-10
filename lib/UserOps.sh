@@ -12,8 +12,55 @@
 #             Version 1.0, 2016/03/28
 #             - The first one
 #             - Add function AddUserPasswd
-#
+#             - Add function AddUser
 # ----------------------------------------------------------------------
+source "${SFROOT}/lib/Echo.sh"
+##! @TODO: Add user
+##!        Arg1: user name
+##!        Usage: AddUser username
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:
+function AddUser()
+{
+  if [ -z $1 ];then
+    EchoResult "AddUser called without parpameter"
+    return 1
+  fi
+
+  USER=$1
+  # check user exists, if exists then delete
+  id -ru ${USER} > /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+      sudo userdel -r ${USER} > /dev/null 2>&1
+      EchoResult "delete ${USER}"
+    else
+      sudo useradd ${USER} > /dev/null 2>&1
+      EchoResult "useradd ${USER}"
+  fi
+}
+##! @TODO: Delete user
+##!        Arg1: user name
+##!        Usage: DelUser username
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:
+function DelUser()
+{
+  if [ -z $1 ];then
+    EchoResult "DelUser called without parpameter"
+    return 1
+  fi
+
+  USER=$1
+  id -ru ${USER} > /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+      sudo userdel -r ${USER} > /dev/null 2>&1
+        EchoResult "${USER} delete success."
+    else
+      EchoResult "${USER} does not exist, do not delete"
+  fi
+}
 
 ##! @TODO: Add user, and passwd user
 ##!        Arg1: user name

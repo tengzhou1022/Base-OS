@@ -6,13 +6,13 @@
     <TestGroup>
         <GroupName>daemons</GroupName>
         <Component>daemons-test</Component>
-        <GroupRun>False</GroupRun>
+        <GroupRun>True</GroupRun>
         <GroupAll>False</GroupAll>
     </TestGroup>
     <TestGroup>
         <GroupName>tools</GroupName>
         <Component>tools-test</Component>
-        <GroupRun>True</GroupRun>
+        <GroupRun>False</GroupRun>
         <GroupAll>False</GroupAll>
     </TestGroup>
 </TestRun>
