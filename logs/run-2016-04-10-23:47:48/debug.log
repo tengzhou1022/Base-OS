@@ -1,0 +1,15 @@
+***********************************************************************
+Component:daemons-test
+---------------------------------------------------------------------->
+Case-001:daemons/coreutils/chown/bz433690_dont_follow_symlinks is running
+23:47:48 PASS | Creating tmp directory success
+23:47:48 PASS | Running 'pushd /tmp/tmp.bgDmLbeSO9' success
+23:47:48 PASS | Running 'mkdir -p pig swine' success
+23:47:48 PASS | Running 'touch pig/file1 swine/file2' success
+23:47:48 PASS | Running 'ln -s /tmp/tmp.bgDmLbeSO9/swine/file2 pig/' success
+23:47:48 PASS | Running 'sudo chown -R daemon:daemon swine' success
+23:47:48 PASS | Running 'sudo chown -R bin:bin pig' success
+23:47:48 FAIL | Running 'ls -la /tmp/swine/file2  |grep "daemon"' failed, pls check
+23:47:48 PASS | Running 'popd' success
+23:47:48 PASS | Removing tmp directory success
+23:47:48 INFO | test daemons/coreutils/chown/bz433690_dont_follow_symlinks finish

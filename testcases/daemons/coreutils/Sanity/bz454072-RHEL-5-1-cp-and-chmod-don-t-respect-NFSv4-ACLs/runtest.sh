@@ -40,40 +40,40 @@ function do_setup()
   DISKM=$TmpDir/disk
   NFSP=$TmpDir/mountpoint
 
-  rlRun "truncate -s 80M $DISKIMG"
-  rlRun "mkfs.ext4 -F $DISKIMG"
-  rlRun "mkdir $NFSP $DISKM"
-  rlRun "mount -o loop,acl $DISKIMG $DISKM"
+  RunCmd "truncate -s 80M $DISKIMG"
+  RunCmd "mkfs.ext4 -F $DISKIMG"
+  RunCmd "mkdir $NFSP $DISKM"
+  RunCmd "mount -o loop,acl $DISKIMG $DISKM"
   StartDaemon nfs
   #nfs-kernel-server: /usr/sbin/exportfs
-  rlRun "exportfs -o rw,fsid=0,no_root_squash localhost:$DISKM/"
+  RunCmd "exportfs -o rw,fsid=0,no_root_squash localhost:$DISKM/"
 }
 
 function do_test()
 {
   EchoInfo "umask mask:`umask`"
   RunCmd "cd $DISKM"
-  rlRun "touch a" 0 "touching a"
-  rlRun "setfacl -m u:root:rw a" 0 "set acl for a"
-  rlRun "mount -t nfs4 localhost:/ $NFSP"
+  RunCmd "touch a" 0 "touching a"
+  RunCmd "setfacl -m u:root:rw a" 0 "set acl for a"
+  RunCmd "mount -t nfs4 localhost:/ $NFSP"
 
-  rlRun "cd $NFSP" 0 "changed dir to nfs mount point"
-  rlRun "cp a b" 0 "normal copy"
-  rlRun "cp -a a c" 0 "archive copy"
-  rlRun "cp --preserve=xattr a d " 0 " cp with preserve xattr "
-  rlRun "cp --preserve=all a e  " 0 " cp with preserve all "
+  RunCmd "cd $NFSP" 0 "changed dir to nfs mount point"
+  RunCmd "cp a b" 0 "normal copy"
+  RunCmd "cp -a a c" 0 "archive copy"
+  RunCmd "cp --preserve=xattr a d " 0 " cp with preserve xattr "
+  RunCmd "cp --preserve=all a e  " 0 " cp with preserve all "
 
-  rlRun "cd $DISKM" 0 "changed dir to disk"
-  rlRun "getfacl a | tee | grep '^[^#]' > test.a" 0 "get ACL for a"
-  rlRun "getfacl b | tee | grep '^[^#]' > test.b" 0 "get ACL for b"
-  rlRun "getfacl c | tee | grep '^[^#]' > test.c" 0 "get ACL for c"
-  rlRun "getfacl d | tee | grep '^[^#]' > test.d" 0 "get ACL for d"
-  rlRun "getfacl e | tee | grep '^[^#]' > test.e" 0 "get ACL for e"
+  RunCmd "cd $DISKM" 0 "changed dir to disk"
+  RunCmd "getfacl a | tee | grep '^[^#]' > test.a" 0 "get ACL for a"
+  RunCmd "getfacl b | tee | grep '^[^#]' > test.b" 0 "get ACL for b"
+  RunCmd "getfacl c | tee | grep '^[^#]' > test.c" 0 "get ACL for c"
+  RunCmd "getfacl d | tee | grep '^[^#]' > test.d" 0 "get ACL for d"
+  RunCmd "getfacl e | tee | grep '^[^#]' > test.e" 0 "get ACL for e"
 
-  rlLog "Important part, filelist: `ls`"
-  rlRun " diff test.a test.b " 1 "a b should be different"
-  rlRun " diff test.a test.c " 0 "a c should be same (--archive/-a) "
-  rlRun " diff test.a test.e " 0 "a e should be same (preserve all) "
+  EchoInfo "Important part, filelist: `ls`"
+  RunCmd " diff test.a test.b " 1 "a b should be different"
+  RunCmd " diff test.a test.c " 0 "a c should be same (--archive/-a) "
+  RunCmd " diff test.a test.e " 0 "a e should be same (preserve all) "
 
 }
 do_setup

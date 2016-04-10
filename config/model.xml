@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- File Name: daemons.xml -->
+<TestRun>
+  <!-- testcases:  @@start-->
+      <TestCase>
+          <Summary></Summary>
+          <Dir></Dir>
+          <Script>runtest.sh</Script>
+          <CaseRun>False</CaseRun>
+      </TestCase>
+  <!-- testcases:  @@end-->
+</TestRun>
