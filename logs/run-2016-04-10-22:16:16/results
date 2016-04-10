@@ -1,9 +1,0 @@
-daemons-test
-PASS|daemons/coreutils/chmod/bz474232_be_silent
-PASS|daemons/coreutils/chmod/Regression/bz474220-behavior-change-chmod-f-option
-****************************
-Tests passed: 2
-Tests failed: 0
-Success rate: 100.00%
-Tests   time: 00h:00m:00s
-****************************

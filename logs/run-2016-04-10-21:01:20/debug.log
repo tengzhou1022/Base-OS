@@ -1,7 +1,0 @@
-***********************************************************************
-Component:daemons-test
----------------------------------------------------------------------->
-Case-001:daemons/coreutils/Library/file is running
-21:01:20 PASS | Creating tmp directory success
-21:01:20 FAIL | Running 'pushd' failed, pls check
-21:01:20 FAIL | Running 'popd' failed, pls check
