@@ -11,6 +11,14 @@
         <CaseRun>False</CaseRun>
     </TestCase>
 <!-- testcases: at @@end-->
+<!-- testcases: chkconfig @@start-->
+    <TestCase>
+        <Summary>daemons/chkconfig/Sanity/simple-sanity-test-of-basic-features</Summary>
+        <Dir>daemons/chkconfig/Sanity/simple-sanity-test-of-basic-features</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+<!-- testcases: chkconfig @@end-->
 <!-- testcases: coreutils @@start-->
     <TestCase>
         <Summary>daemons/coreutils/chgrp/reset-uid</Summary>
@@ -36,11 +44,11 @@
         <Script>runtest.sh</Script>
         <CaseRun>False</CaseRun>
     </TestCase>
-        <TestCase>
-            <Summary>daemons/coreutils/chown/bz433690_dont_follow_symlinks</Summary>
-            <Dir>daemons/coreutils/chown/bz433690_dont_follow_symlinks</Dir>
-            <Script>runtest.sh</Script>
-            <CaseRun>True</CaseRun>
+    <TestCase>
+        <Summary>daemons/coreutils/chown/bz433690_dont_follow_symlinks</Summary>
+        <Dir>daemons/coreutils/chown/bz433690_dont_follow_symlinks</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
         </TestCase>
     <TestCase>
         <Summary>daemons/coreutils/Library/file</Summary>
@@ -53,6 +61,18 @@
         <Dir>daemons/coreutils/Sanity/bz454072-RHEL-5-1-cp-and-chmod-don-t-respect-NFSv4-ACLs</Dir>
         <Script>runtest.sh</Script>
         <CaseRun>False</CaseRun>
+    </TestCase>
+    <TestCase>
+        <Summary>daemons/coreutils/su/acct-check</Summary>
+        <Dir>daemons/coreutils/su/acct-check</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+    <TestCase>
+        <Summary>daemons/coreutils/who/options-br</Summary>
+        <Dir>daemons/coreutils/who/options-br</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>True</CaseRun>
     </TestCase>
 <!-- testcases: coreutils @@end-->
 <!-- testcases: gzip @@start-->
@@ -69,4 +89,21 @@
         <CaseRun>False</CaseRun>
     </TestCase>
 <!-- testcases: gzip @@end-->
+<!-- testcases: setup @@start-->
+    <TestCase>
+        <Summary>daemons/setup/Sanity/Basic-sanity-test</Summary>
+        <Dir>daemons/setup/Sanity/Basic-sanity-test</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+<!-- testcases: setup @@end-->
+
+<!-- testcases: zip @@start-->
+    <TestCase>
+        <Summary>daemons/zip/Functionality/stress-tests/big-file-in-archive</Summary>
+        <Dir>daemons/zip/Functionality/stress-tests/big-file-in-archive</Dir>
+        <Script>runtest.sh</Script>
+        <CaseRun>False</CaseRun>
+    </TestCase>
+<!-- testcases: zip @@end-->
 </TestRun>

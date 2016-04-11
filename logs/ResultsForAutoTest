@@ -1,8 +1,8 @@
 daemons-test
-PASS|daemons/coreutils/chown/bz433690_dont_follow_symlinks
+PASS|daemons/zip/Functionality/stress-tests/big-file-in-archive
 ****************************
 Tests passed: 1
 Tests failed: 0
 Success rate: 100.00%
-Tests   time: 00h:00m:00s
+Tests   time: 00h:04m:16s
 ****************************

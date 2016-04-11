@@ -115,6 +115,20 @@ function CheckGreater()
   fi
 }
 
+##! @TODO:
+##! @AUTHOR: tengzhou1022
+##! @VERSION: 1.0
+##! @OUT:  return value.
+function CheckEquals()
+{
+  if [ -z "$3" ] ; then
+    EchoResult "CheckEquals called without all needed parameters"
+  fi
+  if [ "$2" == "$3" ];then
+    EchoResult "$1: Assert: '$2' should equal '$3'"
+  fi
+}
+
 ##! @TODO: checking that two files do not differ (are identical)
 ##! @AUTHOR: tengzhou1022
 ##! @VERSION: 1.0
